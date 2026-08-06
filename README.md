@@ -35,6 +35,6 @@ O objetivo é documentar aprendizados, conceitos estudados, experimentos e boas 
 
 ## Projetos e aprendizados
 
-Cada pasta contém anotações e exemplos práticos dos conceitos estudados.
+Neste repositório serão registrados aprendizados, conceitos estudados e experimentos práticos realizados durante minha evolução técnica.
 
 > Observação: este repositório não contém códigos, dados ou informações proprietárias de empresas. O conteúdo é focado em aprendizado e evolução técnica.
