@@ -15,7 +15,8 @@ Era necessário criar uma solução que permitisse:
 - respeitar o limite de requisições da API (rate limit);
 - tratar possíveis erros durante as requisições;
 - transformar os dados retornados em uma estrutura adequada para processamento;
-- manter a integração desacoplada do pipeline para possibilitar reutilização.
+- manter a integração desacoplada do pipeline para possibilitar reutilização;
+- evitar o processamento desnecessário de dados já carregados, considerando o volume de informações da API.
 
 ## Solução desenvolvida
 
@@ -36,6 +37,14 @@ A solução permitiu:
 
 O pipeline foi desenvolvido utilizando a biblioteca criada, mantendo a separação entre a integração com a API e o processamento/carga dos dados.
 
+## Evolução da solução
+
+Após revisão técnica da implementação, foi identificada a necessidade de transformar o processo de carga em um ETL incremental, considerando o volume de dados retornado pela API.
+
+A solução foi ajustada para buscar e processar apenas os registros atualizados desde a última execução, evitando o processamento completo da base a cada execução.
+
+Essa alteração tornou o processo mais eficiente e escalável, reduzindo o volume de dados processados e o tempo necessário para atualização da tabela.
+
 ## Principais aprendizados
 
 Durante essa implementação desenvolvi conhecimentos em:
@@ -49,11 +58,8 @@ Durante essa implementação desenvolvi conhecimentos em:
 - tratamento de erros em requisições HTTP;
 - transformação de dados JSON em estruturas tabulares;
 - utilização de variáveis de ambiente para configurações sensíveis;
+- implementação de ETL incremental;
+- consideração de volume e escalabilidade no desenho de pipelines;
 - aplicação de boas práticas de desenvolvimento em projetos de dados;
-- realização de testes locais antes da disponibilização do pipeline em produção.
-
-## Evolução da solução
-
-Como próximo passo, a partir do feedback técnico recebido durante a revisão do código, será avaliada a implementação de uma estratégia de carga incremental no pipeline, considerando o volume de dados gerado pela API.
-
-Essa evolução tem como objetivo melhorar a eficiência do processo e evitar o processamento desnecessário de dados já carregados.
+- realização de testes locais antes da disponibilização do pipeline em produção;
+- evolução da solução a partir de revisão técnica e feedback.
